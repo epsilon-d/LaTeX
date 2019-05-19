@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{color}
+
+\title{Individual Work 3}
+\author{$epsilon-d$}
+\date{May 2019}
+
+\begin{document}
+
+\maketitle
+
+\Large 1. We are going to investigate numerical differentiation of $f(x) = \tan x$  at  $x = \frac{\pi}{4}$\\
+
+\large(a) What is $f'(\pi/4)?$ \textcolor{blue}{[2]}
+
+\begin{align*}
+f(x) &= \tan x\\
+&= \frac{\sin x}{\cos x}\\
+Therefore,\\
+f'(x) &= (\frac{\sin x}{\cos x})' \\ 
+&= \frac{(\sin x)'\cos x - \sin x(\cos x)'}{\cos^2 x}\\
+&= \frac{(\cos x)\cos x - \sin x(-\sin x)}{\cos^2 x}\\
+&= \frac{\cos^2 x + \sin^2 x}{\cos^2 x}\\
+&= \frac{1}{\cos^2 x}\\
+&= \frac{1}{\cos^2 x}\\
+f'(\pi/4) &= \frac{1}{\cos^2 \frac{\pi}{4}}\\
+&=\frac{1}{(\frac{1}{\sqrt{2}})^2}\\
+\end{align*}
+\begin{align*}
+&=\frac{1}{(\frac{1}{2})}\\
+&=2\\
+\end{align*}
+
+(b) Numerically compute $f'(\pi/4)$ using forward, backward, and centered difference for step size $h = 0.1$. \textcolor{blue}{[8]}\\
+
+f.d. : $f'(x)\approx f(\pi/4+0.1)-f(\pi/4)/0.1\approx2.23049$\par
+b.d. : $f'(x)\approx f(\pi/4)-f(\pi/4-0.1)/0.1\approx1.82371$\par
+c.d. : $f'(x)\approx f(\pi/4+0.1)-f(\pi/4-0.1)/0.2\approx2.0271$\\
+
+(c) Make the following table to see error values $\epsilon$ over step size $h$. \textcolor{blue}{[10]}\\
+
+\begin{table}[h]
+\begin{tabular}{l|lll}
+h             & 0.1               & 0.01              & 0.001             \\ \hline
+error of f.d. & 2.230488804498650 & 2.020270043215888 & 2.002002670004388 \\
+error of b.d. & 1.823711905674797 & 1.980263375464597 & 1.998002663337495 \\
+error of c.d. & 2.027100355086724 & 2.000266709340242 & 2.000002666670941
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{l|ll}
+h             & 0.0001            & 0.00001           \\ \hline
+error of f.d. & 2.000200026669452 & 2.000020000270109 \\
+error of b.d. & 1.999800026663001 & 1.999980000255696 \\
+error of c.d. & 2.000000026666227 & 2.000000000262903
+\end{tabular}
+\end{table}
+
+\Large
+2. We are going to numerically compute $\pi$ as following\\
+
+\large
+(a) Make a Matlab code to compute the value $\pi$ using the Leibniz formula \textcolor{blue}{[5]}\\
+
+Please find the attached file.\\
+
+(b) Prove the following formula \textcolor{blue}{[5]}\\
+
+\begin{align*}
+\pi = \int_{0}^{1} \frac{4}{1+x^2}\, dx \qquad (1)
+\end{align*}
+
+\begin{align*}
+Let \; x = \tan t, \; then \\
+t = \arctan x\\
+If \; x = 0, \; then \; t=0 \\
+If \; x = 1, \; then \; t=\frac{\pi}{4}\\
+\frac{dx}{dt} &= \frac{d}{dt}\tan t \\
+&= \frac{1}{\cos^2 t}dt \\
+Therfore, \\
+dx &= \frac{1}{\cos^2 t}dt \\
+So, \int_{0}^{\frac{\pi}{4}} \frac{4}{1+x^2}\, dx &= \int_{0}^{\frac{\pi}{4}} \frac{4}{1+\frac{\sin^2 t}{\cos^2 t}}\, dt \\
+&= \int_{0}^{\frac{\pi}{4}} \frac{4\cos^2 t}{(\cos^2 t+\sin^2 t)}\times\frac{1}{\cos^2 t}\, dt \\
+&= \int_{0}^{\frac{\pi}{4}} \frac{4\cos^2 t}{1}\times\frac{1}{\cos^2 t} \, dt \\
+&= \int_{0}^{\frac{\pi}{4}} \frac{4}{1}\, dt \\
+&= \int_{0}^{\frac{\pi}{4}} 4\, dt \\
+&= 4\times\frac{\pi}{4}-4\times0 \\
+&= \pi
+\end{align*}
+
+(c) Make a Matlab code to compute the approximate value for $\pi$ using (1) with numerical
+integration techniques; midpoint, trapezoid, and Simpson composite quadrature rules for
+various step sizes $h$. \textcolor{blue}{[10]} \\
+
+Please find the attached file.\\
+
+(d) Make the error plot as a function of $h$. \textcolor{blue}{[10]} \\
+
+Please find the attached file.\\
+
+(e) Using the midpoint, trapezoid, and Simpson composite quadrature rules, compute the
+approximate value for $\pi$ with 6 decimal accuracy. \textcolor{blue}{[10]} \\
+
+Please find the attached file.\\
+
+\normalsize Copyright 2019. $epsilon-d$ All Rights Reserved.
+\end{document}
